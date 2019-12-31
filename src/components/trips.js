@@ -10,6 +10,7 @@ import am4geodata_canadaLow from "@amcharts/amcharts4-geodata/canadaLow";
 import { cities } from '../data/Cities';
 import { lines } from '../data/Cities';
 import { states } from '../data/States';
+import { canadaStates } from '../data/States';
 import { countries } from '../data/Countries';
 
 am4core.useTheme(am4themes_kelly);
@@ -52,13 +53,20 @@ class Trips extends Component {
     polygonSeries.data = countries;
     polygonTemplate.propertyFields.fill = "fill";
 
+    // Series for Canada 
+    var canadaSeries = chart.series.push(new am4maps.MapPolygonSeries());
+    canadaSeries.geodata = am4geodata_canadaLow
+    canadaSeries.data = canadaStates;
+
+    var canadaPolygonTemplate = canadaSeries.mapPolygons.template;
+    canadaPolygonTemplate.tooltipText = "{name}";
+    canadaPolygonTemplate.propertyFields.fill = "fill";
+
     // Series for United States maps
     var usaSeries = chart.series.push(new am4maps.MapPolygonSeries());
     usaSeries.geodata = am4geodata_usaLow
-    usaSeries.data = states;
-
-    var canadaSeries = chart.series.push(new am4maps.MapPolygonSeries());
-    canadaSeries.geodata = am4geodata_canadaLow
+    usaSeries.data = states;  
+    
     var usaPolygonTemplate = usaSeries.mapPolygons.template;
     usaPolygonTemplate.tooltipText = "{name}";
     usaPolygonTemplate.propertyFields.fill = "fill";
