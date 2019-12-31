@@ -23,12 +23,15 @@ class TravelPage extends React.Component {
     const pageTitle = "My 2019 Travel Map"
     return (
       <>
-        <h1 style={{margin: "30px"}} >{pageTitle}</h1>
+        <h1 style={{ margin: "30px" }} >{pageTitle}</h1>
         <Trips />
-        <div style={greenStyle}></div>
-        <p>Countries/States Visited in 2019</p>
-        <div style={lightGreenStyle}></div>
-        <p>Countries/States previously Visited</p>
+        <div style={{ margin: "30px" }} >
+          <div style={greenStyle}></div>
+          <p>Countries/States Visited in 2019</p>
+          <div style={lightGreenStyle}></div>
+          <p>Countries/States previously Visited</p>
+          <p>I created this map using <a href="https://www.amcharts.com" target="_blank" rel="noopener noreferrer">amCharts</a> in a React App. Source code is available on my Github: <a href="https://github.com/FerasDA/travelmaps" target="_blank" rel="noopener noreferrer">travelmaps</a></p>
+        </div>
       </>
     )
   }
