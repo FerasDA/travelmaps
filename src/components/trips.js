@@ -53,15 +53,6 @@ class Trips extends Component {
     polygonSeries.data = countries;
     polygonTemplate.propertyFields.fill = "fill";
 
-    // Series for Canada 
-    var canadaSeries = chart.series.push(new am4maps.MapPolygonSeries());
-    canadaSeries.geodata = am4geodata_canadaLow
-    canadaSeries.data = canadaStates;
-
-    var canadaPolygonTemplate = canadaSeries.mapPolygons.template;
-    canadaPolygonTemplate.tooltipText = "{name}";
-    canadaPolygonTemplate.propertyFields.fill = "fill";
-
     // Series for United States maps
     var usaSeries = chart.series.push(new am4maps.MapPolygonSeries());
     usaSeries.geodata = am4geodata_usaLow

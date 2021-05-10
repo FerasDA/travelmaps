@@ -1,6 +1,6 @@
 import * as am4core from "@amcharts/amcharts4/core";
 
-var thisYearsCountries = ["GB", "FR", "ES", "NL", "TR"].map(country => {
+var thisYearsCountries = ["GB", "FR", "ES", "NL", "TR", "CA"].map(country => {
   return {
     "id": country,
     "fill": am4core.color("#5FCA26")

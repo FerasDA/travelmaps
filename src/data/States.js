@@ -14,19 +14,4 @@ var visitedStates = ["US-CA", "US-NV", "US-TX", "US-OK", "US-KS", "US-NE", "US-S
   }
 });
 
-var thisYearCanadaStates = ["CA-ON"].map(province => {
-  return {
-    "id": province,
-    "fill": am4core.color("#5FCA26")
-  }
-});
-
-var visitedCanadaStates = ["CA-QC"].map(province => {
-  return {
-    "id": province,
-    "fill": am4core.color("#C9EDB6")
-  }
-});
-
 export var states = thisYearsStates.concat(visitedStates);
-export var canadaStates = thisYearCanadaStates.concat(visitedCanadaStates);
