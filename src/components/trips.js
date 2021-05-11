@@ -5,12 +5,10 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import am4themes_kelly from "@amcharts/amcharts4/themes/kelly";
 import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 import am4geodata_usaLow from "@amcharts/amcharts4-geodata/usaLow";
-import am4geodata_canadaLow from "@amcharts/amcharts4-geodata/canadaLow";
 
 import { cities } from '../data/Cities';
 import { lines } from '../data/Cities';
 import { states } from '../data/States';
-import { canadaStates } from '../data/States';
 import { countries } from '../data/Countries';
 
 am4core.useTheme(am4themes_kelly);
