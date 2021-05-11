@@ -1,5 +1,6 @@
 var citiesList = {
   "Baltimore": {
+    title: "Baltimore",
     latitude: 39.2904,
     longitude: -76.6122
   },
