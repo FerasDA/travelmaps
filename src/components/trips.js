@@ -6,7 +6,6 @@ import am4themes_kelly from "@amcharts/amcharts4/themes/kelly";
 import am4geodata_worldLow from "@amcharts/amcharts4-geodata/worldLow";
 import am4geodata_usaLow from "@amcharts/amcharts4-geodata/usaLow";
 
-import { lines } from '../data/Cities';
 import { states } from '../data/States';
 import { countries } from '../data/Countries';
 
@@ -90,7 +89,7 @@ class Trips extends Component {
     lineTemplate.fill = interfaceColors.getFor("alternativeBackground");
     lineTemplate.line.strokeOpacity = 0.4;
 
-    lineSeries.data = lines;
+    lineSeries.data = this.props.lines;
   }
 
   componentWillUnmount() {

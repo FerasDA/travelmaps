@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Trips from "./components/trips";
-
+import { routes } from "./data/Cities";
 const greenStyle = {
   float: "left",
   width: "20px",
@@ -21,12 +21,32 @@ const lightGreenStyle = {
 function TravelPage() {
   const pageTitle = "My 2019 Travel Map";
   const [isLoading, setLoading] = useState(true);
-  const [cities, setCities] = useState({});
+  const [cities, setCities] = useState();
+  const [lines, setLines] = useState({});
+
+  const getLines = async (routes, cities) => {
+    const allLines = routes.map((route) => {
+      const from = cities.find((city) => city.title === route.from);
+      const to = cities.find((city) => city.title === route.to);
+      return {
+        multiGeoLine: [
+          [
+            { latitude: from.latitude, longitude: from.longitude },
+            { latitude: to.latitude, longitude: to.longitude },
+          ],
+        ],
+      };
+    });
+    setLines(allLines);
+  };
 
   const getCities = async () => {
     const response = await fetch("/.netlify/functions/getCities");
     const cities = await response.json();
     setCities(cities);
+    if (cities.length > 0) {
+      getLines(routes, cities);
+    }
     setLoading(false);
     return cities;
   };
@@ -41,7 +61,7 @@ function TravelPage() {
   return (
     <>
       <h1 style={{ margin: "30px" }}>{pageTitle}</h1>
-      <Trips cities={cities} />
+      <Trips cities={cities} lines={lines} />
       <div style={{ margin: "30px" }}>
         <div style={greenStyle}></div>
         <p>Countries/States Visited in 2019</p>
