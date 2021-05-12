@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Trips from "./components/trips";
-import { routes } from "./data/Cities";
 const greenStyle = {
   float: "left",
   width: "20px",
@@ -45,7 +44,13 @@ function TravelPage() {
     const cities = await response.json();
     setCities(cities);
     if (cities.length > 0) {
-      getLines(routes, cities);
+      try {
+        const response = await fetch("/.netlify/functions/getFlights");
+        const routes = await response.json();
+        getLines(routes, cities);
+      } catch (e) {
+        console.error(e);
+      }
     }
     setLoading(false);
     return cities;
