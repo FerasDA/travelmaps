@@ -58,7 +58,7 @@ function TravelPage() {
 
   useEffect(() => {
     getCities();
-  }, []);
+  });
 
   if (isLoading) {
     return <div className="App">Loading...</div>;
